@@ -1,0 +1,41 @@
+70. Climbing Stairs  (Logic is explained at the bottom)
+
+You are climbing a staircase. It takes n steps to reach the top.
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+
+Example 1:
+
+Input: n = 2
+Output: 2
+Explanation: There are two ways to climb to the top.
+1. 1 step + 1 step
+2. 2 steps
+Example 2:
+
+Input: n = 3
+Output: 3
+Explanation: There are three ways to climb to the top.
+1. 1 step + 1 step + 1 step
+2. 1 step + 2 steps
+3. 2 steps + 1 step
+ 
+
+Constraints:
+
+1 <= n <= 45
+
+
+===============LOGIC EXPLANATION===============
+
+YOUTUBE LINK FOR VIDEO Description: https://www.youtube.com/watch?v=UUaMrNOvSqg
+
+>> This is an example of Fibonaci Series
+>> FORMULA:  Ways to climb n stairs = ways to climb (n-1) stairs + ways to climb (n-2) stairs
+
+>>EXAMPLE:
+- If we are at 8th stair the we must reach to this stair either from 7th or 6th stairs as we can jump either 1 or 2 steps. So we can find the number of ways to reach n stairs by adding the ways to reach its (n-1) and (n-2) stairs.
+
+- We already know the ways to climb 1st and 2nd stairs by manual calculation so we can find for 3 stairs using above formula and so on
+
+
