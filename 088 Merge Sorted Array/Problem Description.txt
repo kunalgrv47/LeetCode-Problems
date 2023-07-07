@@ -1,0 +1,58 @@
+88. Merge Sorted Array  (====LOGIC EXPLAINED AT THE END==========)
+
+You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
+
+Merge nums1 and nums2 into a single array sorted in non-decreasing order.
+
+The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
+
+ 
+
+Example 1:
+
+Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+Output: [1,2,2,3,5,6]
+Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
+The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
+Example 2:
+
+Input: nums1 = [1], m = 1, nums2 = [], n = 0
+Output: [1]
+Explanation: The arrays we are merging are [1] and [].
+The result of the merge is [1].
+Example 3:
+
+Input: nums1 = [0], m = 0, nums2 = [1], n = 1
+Output: [1]
+Explanation: The arrays we are merging are [] and [1].
+The result of the merge is [1].
+Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
+
+
+===============LOGIC EXPLANATION===============
+
+The logic provided is for merging two sorted arrays, nums1 and nums2, into nums1. The arrays nums1 and nums2 have lengths m and n respectively. The goal is to merge the elements from nums2 into nums1 while maintaining the sorted order.
+
+Here's how the logic works:
+
+Initialize three pointers:
+
+. p1 points to the last element in nums1 (index m - 1).
+. p2 points to the last element in nums2 (index n - 1).
+. p points to the last index in nums1 where the merged elements will be placed (index m + n - 1).
+
+Start iterating from the last index of nums2 (p2) to the first index (0):
+
+If p1 is not out of bounds (p1 >= 0) and the element at nums1[p1] is greater than the element at nums2[p2], it means that the next element to be merged should be from nums1. In this case:
+
+Assign nums1[p1] to nums1[p].
+Decrement p1 to move to the previous element in nums1.
+Otherwise, the next element to be merged should be from nums2. In this case:
+
+Assign nums2[p2] to nums1[p].
+Decrement p2 to move to the previous element in nums2.
+Decrement p to move to the previous index in nums1.
+
+After the while loop ends, there might be remaining elements in nums2 that were not merged. Since nums2 is already sorted, these remaining elements can be copied to the beginning of nums1. This can be done using the System.arraycopy() method, which copies elements from nums2 starting at index 0 to nums1 starting at index 0, with a length of p2 + 1. This ensures that all remaining elements from nums2 are correctly placed in nums1.
+
+Overall, the logic efficiently merges the two sorted arrays nums1 and nums2 into nums1, resulting in a single sorted array containing all the elements.
