@@ -1,0 +1,54 @@
+24. Swap Nodes in Pairs
+
+Given a linked list, swap every two adjacent nodes and return its head. You must solve the problem without modifying 
+the values in the list's nodes (i.e., only nodes themselves may be changed.)
+
+Example 1:
+
+Input: [1,2,3,4]
+Output: [2,1,4,3]
+
+
+Example 2:
+
+Input: []
+Output: []
+
+
+Example 3:
+
+Input: [1]
+Output: [1]
+
+=================TIME AND SPACE COMPLEXITY==============
+TIME COMPLEXITY : O(N)
+SPACE COMPLEXITY: O(1)
+
+
+===============LOGIC EXPLANATION===============
+1. The function checks if the linked list is empty or has only one node. If so, there's no need to swap anything, 
+   and the original head is returned.
+
+2. The function initializes newHead and swappedTail pointers to null. newHead will point to the new head of the 
+   modified list, and swappedTail will help maintain the correct connections while swapping nodes.
+
+3. A loop is used to iterate through the linked list in pairs of two nodes (consecutive nodes).
+
+4. Inside the loop:
+	-nextHead is used to store the head of the next pair of nodes. This is necessary to maintain the continuity 
+	 of the list after swapping.
+	-node1 and node2 are the first and second nodes of the current pair.
+	-The next pointers of node1 and node2 are swapped to achieve the swapping of nodes.
+
+5. After swapping the nodes:
+	- If newHead is null, it means this is the first swapped pair, so newHead is updated to point to the second node of the pair.
+	- If newHead is not null, it means there was a previous swapped pair, so the next pointer of the swappedTail 
+	  is updated to point to the second node of the current pair.
+
+6. The swappedTail is then updated to point to the first node of the current pair. This ensures that the next pointer of the 
+   first node of the next pair can be updated correctly in the next iteration.
+
+7. Finally, the head pointer is updated to nextHead to move to the next pair of nodes for the next iteration.
+
+8. The function returns the newHead, which is the head of the modified linked list.
+
